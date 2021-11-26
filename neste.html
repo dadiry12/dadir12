@@ -114,9 +114,55 @@
  <pre> &lt;body&gt;
     &lt;canvas id="tegneflate" width="400" height="400" /&gt;
  &lt;/body&gt;
+    </pre>
+</div>
+<p>3. La canvaset  få en kantlije rundt seg:</p>
+<div class="ramme">
+<pre>&lt;style&gt;
+    // tegneflate {border-style:solid;}
+    &lt;/style&gt;
+</pre>
+</div>
+<p>4. Lag funksjonen som trenger en rekke sirkler utenpå hverandre. funksjonen</p>
+<p>tar som parametere x,y, radius på ytterste sirkel, antall sirkler, en arraymed</p>
+<p>fargenavn som skal benyttes, og contexten som det skal tegnes på:</p>
+<div class="ramme">
+<pre>function sirkler(x, y, radius, antall, farger, ctx) {
+    var radiusTrekk = radius, / antall;
+    var teller =0;
+    while (teller &lt; antall) {
+        ctx.strokestyle = farger[teller % farger.legth];
+        ctx.beginpath();
+        ctx.arc(x,y, radius, 0, 2  math.PI);
+        ctx.stroke();
+        radius = radius - radiusTrekk;
+        teller++;
+    }
+}
+    
 
     </pre>
 </div>
+<p>5. Legg inn kode i oppstart-funksjonen som benytter funksjonen sirkler</p>
+<p>til å tegne noen testsirkler:</p>
+<div class="ramme"> 
+<pre>
+    var ctx = document.getElementById("tegneflate").getContext("2d");
+    var farge1 = ['red', 'green', 'blue', 'yellow'];
+    var farge2 = ['black', 'gray'];
+    sirkler (100, 100, 150, 10, farge1, ctx);
+    sirkler (300, 100, 100, 15, farge2, ctx);
+    sirkler (200, 250, 90, 15, farge1, ctx);
+
+</pre>
+</div>
+<p>
+6. test nettsiden, og kontroller at sirklene blir tegnet.
+</p>
+<img src="sirkler.jpg"  width= 500 alt="sirkel">
+<p>inne i  funksjonen sirkler lager vi først noen variablen. variabelen radiusTrekk</p>
+<p> er verdien vi minsker radiusen med for hver sirkel. vi lager  også en teller. for hver</p>
+<p>gang programmet går gjennom løkke, settes først en linjefarge.</p>
 </div>
 <script>
 /* When the user clicks on the button, 
