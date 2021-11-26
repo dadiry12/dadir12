@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.eksempel {
+  float: left;
+  overflow: hidden;
+}
+
+.eksempel .dropbtn {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .eksempel:hover .dropbtn, .dropbtn:focus {
+  background-color: red;
+}
+
+.ramme {
+	border-color: rgba(206, 205, 194, 0.918);
+  color: rgb(250, 8, 8);
+  background-color: rgba(230, 222, 222, 0.575);
+	border-width: 10px;
+	border-style: solid;
+	text-align: left;
+}
+.ramme2 {
+	border-color: rgba(228, 213, 104, 0.966);
+  color: rgb(3, 3, 3);
+  background-color: rgba(238, 213, 104, 0.966);
+	border-width: 10px;
+	border-style: solid;
+	text-align: left;
+}
+
+
+.eksempel-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.eksempel-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.eksempel-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="#hjem">Hjem</a>
+  <a href="#wax yar sug">W</a>
+  <div class="eksempel">
+  <button class="dropbtn" onclick="myFunction()">eksempel
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="eksempel-content" id="myEksempel">
+    <a href="#">neste</a>
+    
+  </div>
+  </div> 
+</div>
+
+<h1>Eksempel, sirkelfunksjon</h1>
+<p>Dette eksempel vi skal lage en funksjon som tegner sirkel inne i sirkler. som</p>
+<p> parametere har vi x- og  y- koordinatene for senterpunktet til sirklene, radius på den</p>
+<p>ytterste sirkelen, antall sirkler og fargene som skal benyttes.</p>
+<hr>
+<p>i praksis lager vi nå en 2utvidelse" av hva som allerede finnes i javaScript for å tegne</p>
+<p>med. Vi lager en ny funksjon som er basert på andre eksisterende funksjoner.</p>
+<p>1.  Leg et nytt HTML-dokumet du kallee "sirkeltegner.html" ut fra mal.html.</p>
+<p>2.  Legg inn et "canvas" som vi skal tegne på:</p>
+<div class="ramme">
+ <pre> &lt;body&gt;
+    &lt;canvas id="tegneflate" width="400" height="400" /&gt;
+ &lt;/body&gt;
+
+    </pre>
+</div>
+</div>
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the eksempel content */
+function myFunction() {
+  document.getElementById("myEksempel").classList.toggle("show");
+}
+
+// Close the eksempel if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myEksempel = document.getElementById("myEksempel");
+    if (myEksempel.classList.contains('show')) {
+      myEksempel.classList.remove('show');
+    }
+  }
+}
+</script>
+</body>
+</html>
